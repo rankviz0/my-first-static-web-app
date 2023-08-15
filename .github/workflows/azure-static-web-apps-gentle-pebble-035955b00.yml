@@ -9,28 +9,44 @@ on:
     branches:
       - main
 
-jobs:
-  build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-    runs-on: ubuntu-latest
-    name: Build and Deploy Job
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-      - name: Build And Deploy
-        id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_PEBBLE_035955B00 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-          action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/.src" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "/.src" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
+<html><head>
+<style>
+body {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+button {
+  margin-top: 20px;
+}
+</style>
+</head>
+<body style="
+    /* max-width: 850px; */
+    /* text-align: center; */
+">
+<div style="
+    text-align: center;
+    max-width: 768px;
+">
+  <h1> What is <a href="https://www.rankviz.co.uk/">Rankviz</a> ?</h1>
+  <p style="
+    text-align: center;
+">It is a UK based SEO agency, boost your website's visibility, traffic, and rankings on search engines with the leading SEO agency. Our team of seasoned experts utilizes cutting-edge strategies to drive organic growth and deliver measurable results. </p>
+  <h2>Get Free Website Audit</h2>
+  <p>We are a leading SEO Agency, get your free website audit and analysis before starting work</p>
+  <h2>Call for Free Consultation</h2>
+  <p>Get free SEO consultation for your website by just doing a call</p>
+<h1>Are you looking for best and result oriendted SEO Agency in UK?</h1>
+<button style="background-color: #0000FF; color: white; font-size: 20px; padding: 10px 20px;" onclick="window.open('https://www.rankviz.co.uk/contact-us/')">Contact Us</button>
+
+
+</div>
+</body></html>
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
